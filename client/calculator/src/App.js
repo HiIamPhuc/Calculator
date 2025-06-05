@@ -4,7 +4,7 @@ import Screen from "./components/Screen";
 import ButtonBox from "./components/ButtonBox";
 import Button from "./components/Button";
 import SideBar from "./components/SideBar";
-import Graphing from "./components/Graphing";
+import Graphing from "./pages/graphing/Graphing";
 import "./App.css";
 
 const btnValues = [
