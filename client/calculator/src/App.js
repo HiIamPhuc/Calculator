@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-
 import Wrapper from "./components/Wrapper";
 import Screen from "./components/Screen";
 import ButtonBox from "./components/ButtonBox";
 import Button from "./components/Button";
+import SideBar from "./components/SideBar";
+import Graphing from "./components/Graphing";
+import "./App.css";
 
 const btnValues = [
   ["C", "+-", "%", "/"],
@@ -19,7 +21,8 @@ const toLocaleString = (num) =>
 const removeSpaces = (num) => num.toString().replace(/\s/g, "");
 
 const App = () => {
-  let [calc, setCalc] = useState({
+  const [mode, setMode] = useState("standard");
+  const [calc, setCalc] = useState({
     sign: "",
     num: 0,
     res: 0,
@@ -125,35 +128,45 @@ const App = () => {
   };
 
   return (
-    <Wrapper>
-      <Screen value={calc.num ? calc.num : calc.res} />
-      <ButtonBox>
-        {btnValues.flat().map((btn, i) => {
-          return (
-            <Button
-              key={i}
-              className={btn === "=" ? "equals" : ""}
-              value={btn}
-              onClick={
-                btn === "C"
-                  ? resetClickHandler
-                  : btn === "+-"
-                  ? invertClickHandler
-                  : btn === "%"
-                  ? percentClickHandler
-                  : btn === "="
-                  ? equalsClickHandler
-                  : btn === "/" || btn === "X" || btn === "-" || btn === "+"
-                  ? signClickHandler
-                  : btn === "."
-                  ? commaClickHandler
-                  : numClickHandler
-              }
-            />
-          );
-        })}
-      </ButtonBox>
-    </Wrapper>
+    <div className="app-container">
+      <div className="sidebar">
+        <SideBar setMode={setMode} />
+      </div>
+      <div className="main-content">
+        {mode === "standard" && (
+          <Wrapper>
+            <Screen value={calc.num ? calc.num : calc.res} />
+            <ButtonBox>
+              {btnValues.flat().map((btn, i) => (
+                <Button
+                  key={i}
+                  className={btn === "=" ? "equals" : ""}
+                  value={btn}
+                  onClick={
+                    btn === "C"
+                      ? resetClickHandler
+                      : btn === "+-"
+                      ? invertClickHandler
+                      : btn === "%"
+                      ? percentClickHandler
+                      : btn === "="
+                      ? equalsClickHandler
+                      : btn === "/" || btn === "X" || btn === "-" || btn === "+"
+                      ? signClickHandler
+                      : btn === "."
+                      ? commaClickHandler
+                      : numClickHandler
+                  }
+                />
+              ))}
+            </ButtonBox>
+          </Wrapper>
+        )}
+        {mode === "scientific" && <div>Scientific Calculator</div>}
+        {mode === "currency" && <div>Currency Converter</div>}
+        {mode === "graphing" && <Graphing />}
+      </div>
+    </div>
   );
 };
 
