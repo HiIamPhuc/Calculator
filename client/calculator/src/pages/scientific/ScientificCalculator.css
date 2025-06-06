@@ -1,0 +1,85 @@
+.scientific-calculator {
+  width: 400px;
+  background-color: #485461;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display {
+  background-color: #4357692d;
+  color: white;
+  padding: 20px;
+  font-size: 2em;
+  text-align: right;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  min-height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  word-break: break-all;
+}
+
+.keypad {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+.function-keys,
+.trigonometry-keys {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.number-keys {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 15px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(80, 60, 209);
+  color: white;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: rgb(61, 43, 184);
+}
+
+button:active {
+  background-color: rgb(61, 43, 184);
+}
+
+.function-keys button,
+.trigonometry-keys button {
+  background-color: rgb(80, 60, 209);
+  font-size: 1em;
+}
+
+.function-keys button:hover,
+.trigonometry-keys button:hover {
+  background-color: rgb(61, 43, 184);
+}
+
+button:last-child {
+  background-color: rgb(243, 61, 29);
+}
+
+button:last-child:hover {
+  background-color: rgb(228, 39, 15);
+} 
