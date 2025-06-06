@@ -5,6 +5,7 @@ import ButtonBox from "./components/ButtonBox";
 import Button from "./components/Button";
 import SideBar from "./components/SideBar";
 import Graphing from "./pages/graphing/Graphing";
+import CurrencyConverter from "./pages/currency/CurrencyConverter";
 import "./App.css";
 
 const btnValues = [
@@ -163,7 +164,7 @@ const App = () => {
           </Wrapper>
         )}
         {mode === "scientific" && <div>Scientific Calculator</div>}
-        {mode === "currency" && <div>Currency Converter</div>}
+        {mode === "currency" && <CurrencyConverter />}
         {mode === "graphing" && <Graphing />}
       </div>
     </div>
