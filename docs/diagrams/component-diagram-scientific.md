@@ -1,19 +1,15 @@
 ```mermaid
     C4Component
-    title Component Diagram for Web Client
+    title Component Diagram for Scientific Calculator Server
 
-    Container_Boundary(webClient, "Web Client") {
-        Component(app, "App Component", "React", "Main application component that handles routing and mode switching")
-        Component(scientificCalc, "Scientific Calculator", "React", "Handles scientific calculations UI and logic")
-        Component(standardCalc, "Standard Calculator", "React", "Handles basic calculations UI and logic")
-        Component(graphingCalc, "Graphing Calculator", "React", "Handles function graphing UI and logic")
-        Component(currencyConv, "Currency Converter", "React", "Handles currency conversion UI and logic")
-        Component(sidebar, "Sidebar", "React", "Navigation between calculator modes")
+    Container_Boundary(scientificServer, "Scientific Calculator Server") {
+        Component(flaskApp, "Flask Application", "Python/Flask", "Handles HTTP requests and responses")
+        Component(calcLogic, "Calculation Logic", "Python", "Performs scientific calculations")
+        Component(errorHandler, "Error Handler", "Python", "Handles calculation errors and validation")
+        Component(apiEndpoints, "API Endpoints", "Flask Routes", "Defines calculation endpoints")
     }
 
-    Rel(app, scientificCalc, "Uses")
-    Rel(app, standardCalc, "Uses")
-    Rel(app, graphingCalc, "Uses")
-    Rel(app, currencyConv, "Uses")
-    Rel(app, sidebar, "Uses")
+    Rel(apiEndpoints, calcLogic, "Uses")
+    Rel(apiEndpoints, errorHandler, "Uses")
+    Rel(flaskApp, apiEndpoints, "Routes requests to")
 ```
