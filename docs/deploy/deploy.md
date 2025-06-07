@@ -1,45 +1,55 @@
-# Hướng dẫn chạy Web Calculator (How to deploy)
+# Deployment Guide for Web Calculator
 
-## Phần 1: Chạy Backend Python với `virtualenv` (mỗi service một môi trường ảo)
+## Part 1: Run the Python Backend with `virtualenv` (one virtual environment per service)
 
-Dự án có các service riêng biệt, ví dụ cho service graphing: `server/graphing`.
+The project includes separate services, for example, the graphing service: `server/graphing`.
 
-### Bước 1: Tạo Môi Trường Ảo cho Từng Service
+### Step 1: Create a Virtual Environment for Each Service
 
-#### 1. Di chuyển vào thư mục service
+#### 1. Navigate to the service directory
+
 ```bash
 cd server/graphing
 ```
 
-#### 2. Tạo môi trường ảo bằng `virtualenv`
+#### 2. Create a virtual environment using `virtualenv`
+
 ```bash
 virtualenv venv
 ```
-> Lệnh này sẽ tạo thư mục `venv/` trong thư mục hiện tại.
 
-#### 3. Kích hoạt môi trường ảo
-* **Trên Windows**:
+> This command creates a `venv/` directory in the current folder.
+
+#### 3. Activate the virtual environment
+
+* **On Windows**:
+
   ```bash
   venv\Scripts\activate
   ```
 
-* **Trên macOS/Linux**:
+* **On macOS/Linux**:
+
   ```bash
   source venv/bin/activate
   ```
-> Sau khi kích hoạt, bạn sẽ thấy dấu `(venv)` xuất hiện trước terminal.
 
-#### 4. Cài đặt các thư viện cần thiết
-* Có file `requirements.txt`:
+> After activation, you will see `(venv)` appear at the beginning of your terminal prompt.
+
+#### 4. Install required libraries
+
+* If there's a `requirements.txt` file:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 5. Lặp lại các bước trên cho từng service khác trong `server/`
-Còn các service khác trong `server/` là `currency-converter` và `scientific-calculator`.
+#### 5. Repeat the above steps for other services under `server/`
+
+Other services include `currency-converter` and `scientific-calculator`.
 
 For Windows:
+
 ```bash
 cd server/currency-converter
 virtualenv venv
@@ -54,9 +64,9 @@ venv\Scripts\activate
 
 ---
 
-### Bước 2: Chạy Backend
+### Step 2: Run the Backend
 
-File chính của mỗi service là `app.py`:
+The main file for each service is `app.py`:
 
 ```bash
 cd server/name-of-service
@@ -66,11 +76,11 @@ cd server/name-of-service
 python app.py
 ```
 
-> 📡 Mặc định, server chạy tại `http://0.0.0.0:5001` hoặc `http://127.0.0.1:5001`.
+> 📡 By default, the server runs at `http://0.0.0.0:5001` or `http://127.0.0.1:5001`.
 
 ---
 
-### Bước 3: Thoát Môi Trường Ảo 
+### Step 3: Deactivate the Virtual Environment
 
 ```bash
 deactivate
@@ -78,40 +88,42 @@ deactivate
 
 ---
 
-## Phần 2: Chạy Frontend React (Node.js)
+## Part 2: Run the React Frontend (Node.js)
 
-Frontend nằm trong thư mục `client/calculator`.
+The frontend is located in the `client/calculator` directory.
 
-### Bước 1: Cài đặt Node.js (nếu chưa có)
+### Step 1: Install Node.js (if not already installed)
 
-* Tải tại: [https://nodejs.org](https://nodejs.org)
+* Download from: [https://nodejs.org](https://nodejs.org)
 
-### Bước 2: Cài đặt thư viện cho frontend
+### Step 2: Install frontend dependencies
 
 ```bash
 cd client/calculator
 npm install
 ```
 
-### Bước 3: Chạy ứng dụng React
+### Step 3: Run the React application
 
 ```bash
 npm start
 ```
 
-> Ứng dụng sẽ tự động mở tại `http://localhost:3000`
+> The app will automatically open at `http://localhost:3000`
 
 ---
 
-## Bảng tổng Kết Câu Lệnh Nhanh
+## Quick Command Summary Table
 
-| Hành động                       | Câu lệnh ví dụ                    |
-| ------------------------------- | --------------------------------- |
-| Tạo môi trường ảo               | `virtualenv venv`                 |
-| Kích hoạt môi trường ảo (Windows)             | `venv\Scripts\activate`           |
-| Kích hoạt môi trường ảo (macOS/Linux)         | `source venv/bin/activate`        |
-| Cài thư viện Python             | `pip install -r requirements.txt` |
-| Chạy backend                    | `python app.py`                   |
-| Tắt môi trường ảo               | `deactivate`                      |
-| Cài đặt thư viện React frontend | `npm install`                     |
-| Chạy frontend React             | `npm start`                       |
+| Action                             | Example Command                   |
+| ---------------------------------- | --------------------------------- |
+| Create virtual environment         | `virtualenv venv`                 |
+| Activate virtual env (Windows)     | `venv\Scripts\activate`           |
+| Activate virtual env (macOS/Linux) | `source venv/bin/activate`        |
+| Install Python dependencies        | `pip install -r requirements.txt` |
+| Run backend                        | `python app.py`                   |
+| Deactivate virtual environment     | `deactivate`                      |
+| Install React frontend libraries   | `npm install`                     |
+| Run React frontend                 | `npm start`                       |
+
+---
