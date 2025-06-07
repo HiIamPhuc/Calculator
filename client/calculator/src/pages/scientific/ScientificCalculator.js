@@ -3,7 +3,6 @@ import './ScientificCalculator.css';
 
 const ScientificCalculator = () => {
   const [display, setDisplay] = useState('0');
-  const [memory, setMemory] = useState(null);
   const [waitingForOperand, setWaitingForOperand] = useState(true);
   const [pendingOperation, setPendingOperation] = useState(null);
   const [firstOperand, setFirstOperand] = useState(null);
@@ -13,7 +12,7 @@ const ScientificCalculator = () => {
 
   const performCalculation = async (operation, value, secondValue = null) => {
     try {
-      const response = await fetch('http://localhost:5000/api/scientific/calculate', {
+      const response = await fetch('http://localhost:5002/api/scientific/calculate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,6 +23,7 @@ const ScientificCalculator = () => {
           secondValue: secondValue !== null ? parseFloat(secondValue) : null,
         }),
       });
+      console.log(response);
 
       const data = await response.json();
       if (data.success) {
@@ -32,6 +32,7 @@ const ScientificCalculator = () => {
         setError(null);
         setWaitingForSecondValue(false);
         setPendingScientificOperation(null);
+        console.log(data.result);
       } else {
         setError(data.error || 'Calculation error');
         setDisplay('Error');
@@ -181,7 +182,7 @@ const ScientificCalculator = () => {
 
           <button onClick={() => inputDigit('0')}>0</button>
           <button onClick={inputDot}>.</button>
-          <button onClick={() => handleScientificOperation('pi')}>π</button>
+          <button onClick={() => {setDisplay('π'); handleScientificOperation('pi')}}>π</button>
           <button onClick={() => performOperation('+')}>+</button>
         </div>
       </div>

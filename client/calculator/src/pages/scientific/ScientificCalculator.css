@@ -13,7 +13,7 @@
 .display {
   background-color: #4357692d;
   color: white;
-  padding: 20px;
+  padding: 0px;
   font-size: 2em;
   text-align: right;
   margin-bottom: 20px;
@@ -28,7 +28,7 @@
 
 .keypad {
   display: grid;
-  gap: 10px;
+  grid-gap: 10px;
   width: 100%;
 }
 
@@ -36,14 +36,13 @@
 .trigonometry-keys {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  margin-bottom: 10px;
+  grid-gap: 10px;
 }
 
 .number-keys {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+  grid-gap: 10px;
 }
 
 button {
@@ -75,11 +74,3 @@ button:active {
 .trigonometry-keys button:hover {
   background-color: rgb(61, 43, 184);
 }
-
-button:last-child {
-  background-color: rgb(243, 61, 29);
-}
-
-button:last-child:hover {
-  background-color: rgb(228, 39, 15);
-} 

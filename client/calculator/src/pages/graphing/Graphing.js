@@ -16,7 +16,7 @@ const Graphing = () => {
       return;
     }
     try {
-      const response = await fetch('http://127.0.0.1:5001/api/graph', {
+      const response = await fetch('http://localhost:5001/api/graph', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ expression, range: [-20, 20], points: 200 }),
