@@ -1,6 +1,6 @@
 ### System Context Diagram
 
-![System Context Diagram](./diagrams/context-diagram.png "System Context Diagram")
+![System Context Diagram](./assets/context-diagram.png "System Context Diagram")
 
 The Scientific Calculator System operates as a comprehensive calculation platform that serves individual users requiring various types of calculations. At the system context level:
 
@@ -10,7 +10,7 @@ The Scientific Calculator System operates as a comprehensive calculation platfor
 
 ### Container Diagram
 
-![Container Diagram](./diagrams/container-diagram.png "Container Diagram")
+![Container Diagram](./assets/container-diagram.png "Container Diagram")
 
 The Scientific Calculator System is structured into four main containers, each serving a specific purpose:
 
@@ -39,11 +39,11 @@ This containerization approach ensures:
 - Independent scaling and maintenance
 - Modular system architecture
 
-### Component Diagrams
+### Component assets
 
 #### Web Client Components
 
-![Web Client Components](./diagrams/component-diagram-client.png "Web Client Components")
+![Web Client Components](./assets/component-diagram-client.png "Web Client Components")
 
 The React-based web client is composed of several key components:
 - **App Component**: Central routing and mode management
@@ -54,7 +54,7 @@ The React-based web client is composed of several key components:
 
 #### Scientific Calculator Server Components
 
-![Scientific Calculator Server Components](./diagrams/component-diagram-scientific.png "Scientific Calculator Server Components")
+![Scientific Calculator Server Components](./assets/component-diagram-scientific.png "Scientific Calculator Server Components")
 
 The scientific calculation service consists of:
 - **Flask Application**: HTTP request handler
@@ -64,7 +64,7 @@ The scientific calculation service consists of:
 
 #### Currency Server Components
 
-![Currency Server Components](./diagrams/component-diagram-currency.png "Currency Server Components")
+![Currency Server Components](./assets/component-diagram-currency.png "Currency Server Components")
 
 The currency service is structured with:
 - **Flask Application**: HTTP request handler
@@ -74,7 +74,7 @@ The currency service is structured with:
 
 #### Graphing Server Components
 
-![Graphing Server Components](./diagrams/component-diagram-graphing.png "Graphing Server Components")
+![Graphing Server Components](./assets/component-diagram-graphing.png "Graphing Server Components")
 
 The graphing service includes:
 - **Flask Application**: HTTP request handler
@@ -85,7 +85,7 @@ The graphing service includes:
 
 ### Deployment Diagram
 
-![Deployment Diagram](./diagrams/deployment-diagram.png "Deployment Diagram")
+![Deployment Diagram](./assets/deployment-diagram.png "Deployment Diagram")
 
 The calculator system employs a microservices architecture with separate deployment for each service:
 
